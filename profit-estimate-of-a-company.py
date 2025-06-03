@@ -34,6 +34,12 @@ from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
-#predict the test set results
+#predicting the test set results
 y_pred = regressor.predict(X_test)
-print(y_pred)
+# print(y_pred)
+
+#calculating the coefficients
+print(regressor.coef_)
+
+#calculating the intercept
+print(regressor.intercept_)
