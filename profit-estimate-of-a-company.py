@@ -2,10 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+from fontTools.unicodedata import block
 from numpy.ma.core import remainder
 
 #loading and defining the data
-companies = pd.read_csv('1000_Companies.csv')
+companies = pd.read_csv('1000_Companies_Expanded.csv')
 X = companies.iloc[:, :-1]
 y = companies.iloc[:, 4]
 # print(companies.head())
@@ -13,7 +14,7 @@ y = companies.iloc[:, 4]
 #data visualization
 sns.heatmap(companies.corr(numeric_only=True), annot=True, cmap='coolwarm')
 plt.title('correlation heatmap')
-plt.show()
+plt.show(block=False)
 
 #encoding categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
@@ -22,7 +23,7 @@ column_transformer = ColumnTransformer(
                     transformers = [('encoder', OneHotEncoder(drop='first', sparse_output=False), ['State'])],
                     remainder = 'passthrough')
 X = column_transformer.fit_transform(X)
-print(X)
+# print(X)
 
 # splitting the dataset into the training set and test set
 from sklearn.model_selection import train_test_split
@@ -32,3 +33,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
+
+#predict the test set results
+y_pred = regressor.predict(X_test)
+print(y_pred)
