@@ -6,7 +6,7 @@ from fontTools.unicodedata import block
 from numpy.ma.core import remainder
 
 #loading and defining the data
-companies = pd.read_csv('1000_Companies_Expanded.csv')
+companies = pd.read_csv('1000_Companies.csv')
 X = companies.iloc[:, :-1]
 y = companies.iloc[:, 4]
 # print(companies.head())
@@ -43,3 +43,7 @@ print(regressor.coef_)
 
 #calculating the intercept
 print(regressor.intercept_)
+
+#calculating the R squared value
+from sklearn.metrics import r2_score
+print(r2_score(y_test, y_pred))
