@@ -6,7 +6,7 @@ from fontTools.unicodedata import block
 from numpy.ma.core import remainder
 
 #loading and defining the data
-companies = pd.read_csv('1000_Companies.csv')
+companies = pd.read_csv('datasets/1000_Companies.csv')
 X = companies.iloc[:, :-1]
 y = companies.iloc[:, 4]
 # print(companies.head())
