@@ -30,12 +30,12 @@
 	•	Degree 2 Polynomial
 	•	Tried on:
 	•	Selected features: R² = 0.6043
-	•	All features: R² = 0.6259 ✅
+	•	All features: R² = 0.6259 
 
 3. Regularization
 	•	With PolynomialFeatures(degree=2) on all features:
 	•	Ridge Regression: R² = 0.6283
-	•	Lasso Regression: R² = 0.6484 ✅
+	•	Lasso Regression: R² = 0.6484 
 
 4. Interpretability
 	•	Visualized actual vs predicted prices with matplotlib
