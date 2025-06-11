@@ -87,3 +87,46 @@ Steps Taken
    •	Writing: ~0.28
    •	Demographics alone are insufficient to accurately predict academic scores.
    •    The quality of input features significantly affects model performance.
+
+# Summary for Toyota Car Price Prediction Project
+
+Toyota Car Price Regression Project
+
+This project analyzes the predictability of used Toyota car prices based on multiple vehicle features using regression techniques.
+
+Dataset
+	•	Source: Open Toyota used car dataset from kaggle
+	•	Features:
+	•	Year, Mileage, Engine Size, Transmission, Fuel Type, Tax, MPG, Model
+	•	Target Variable: Price
+
+Objective
+
+To build regression models that predict the price of used Toyota cars based on vehicle specifications, and to evaluate how different feature encoding choices affect model performance.
+
+Steps Taken
+
+1. Data Cleaning & Preparation
+	•	Handled categorical variables using two approaches:
+	•	One-Hot Encoding for Transmission, Fuel Type.
+	•	Label Encoding vs Ordinal Encoding tested for Model feature.
+	•	Split data into training and testing sets using train_test_split.
+
+2. Exploratory Data Analysis
+	•	Visualized feature distributions and checked correlations.
+	•	Found strong correlation between Price and features like Year, Mileage, Engine Size.
+	•	Categorical variables (Model, Transmission, Fuel Type) required proper encoding due to their mixed nature.
+
+3. Modeling
+	•	Built a pipeline using ColumnTransformer and Pipeline for clean preprocessing and modeling.
+	•	Trained linear regression model
+
+4. Evaluation
+	•	Used R² Score as evaluation metric.
+	•	Tested how encoding strategies impacted model accuracy:
+	•	With One-Hot Encoding for Model: R² ≈ 0.90
+	•	With Ordinal Encoding for Model: R² ≈ 0.927
+	•	Findings:
+	•	Certain models benefit from ordinal encoding when categorical variables have many levels.
+	•	Features like Year and Mileage are strong predictors.
+	•	Proper encoding of high-cardinality categorical features significantly improves model performance.
